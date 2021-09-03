@@ -20,7 +20,6 @@ def removeGivenNode(head, val):
             ptr = ptr.next
     return sentinal.next
 
-
 # Taking Input Using Fast I/O
 def takeInput():
     head = None

@@ -140,6 +140,8 @@ class HuffmanCoding:
         return
 
 
+
+
 path = 'Users\iamlo\Desktop\sample.txt'
 h = HuffmanCoding(path)
 output_path = h.compress()

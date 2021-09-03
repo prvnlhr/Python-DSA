@@ -29,14 +29,14 @@ def insertAtith(head, i, element):
     temp = head
     currPos = 1
 
+    # Edge case::
     if i == 0:
         newNode.next = head.next
         head = newNode
         return head
-
+    # Looping through the LL
     while temp is not None:
         # print(temp.data)
-
         if currPos == i:
             newNode.next = temp.next
             temp.next = newNode

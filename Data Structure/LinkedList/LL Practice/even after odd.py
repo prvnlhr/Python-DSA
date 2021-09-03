@@ -5,7 +5,7 @@ class Node:
         self.next = None
 
 
-# NOTE: We are not arrange on basis of list values, we are arranging on basis of even and odd positions
+# NOTE: We are not arranging on basis of list values, we are arranging on basis of even and odd positions
 def arrange_LinkedList(head):
     # Steps: 1.we will maintain odd and even list
     # 2.we will connect even places to even list and odd places to odd list

@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 def rootToLeafPathsSumToK(root, k, lst):
     if root == None:
         return

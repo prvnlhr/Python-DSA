@@ -77,7 +77,7 @@ def partition(head, x):
     return before_head.next
 
 
-# my attempt didnt work for some cases. Complex to understand
+# my attempt didn't work for some cases. Complex to understand
 # just attempted.
 # def partition(head, x):
 #     sentinal = ListNode(0)

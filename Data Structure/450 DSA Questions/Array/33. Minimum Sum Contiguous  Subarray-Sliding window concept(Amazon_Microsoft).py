@@ -8,8 +8,10 @@ def minimumSumArray(arr, k):
         currWinSum = currWinSum + arr[i]
 
     minimumSum = currWinSum
-
     minArrayIndex = k - 1
+
+
+
     for j in range(k, len(arr)):
         # removing element from window
         currWinSum = currWinSum - arr[j - k]

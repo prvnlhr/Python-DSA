@@ -3,6 +3,7 @@ class Node:
         self.data = data
         self.next = None
 
+
 def ChangeStart(head, n):
     # print(n)
     ptr = head
@@ -21,7 +22,7 @@ def ChangeStart(head, n):
         required = required.next
         next = required.next
 
-    print(prev.data , required.data , next.data)
+    print(prev.data, required.data, next.data)
     required.next = head
     prev.next = next
     head = required

@@ -5,15 +5,20 @@ class Node:
         self.next = None
 
 
-# Take Input ____________________________________________________________________________________________________________
+# Take Input____________________________________________________________________________________________________________
 def takeInput():
+
+
     inputList = [int(i) for i in input().split()]
+
     head = None
+
 
     for currData in inputList:
         if currData == -1:
             break
         newNode = Node(currData)
+
         if head is None:
             head = newNode
 
