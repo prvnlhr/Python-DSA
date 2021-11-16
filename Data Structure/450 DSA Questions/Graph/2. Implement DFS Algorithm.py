@@ -13,7 +13,6 @@ class Graph:
             print(i)
 
     def dfs_helper(self, visited, sv):
-
         visited[sv] = True
         print(sv)
         for i in range(len(self.adjMatrix)):
@@ -44,4 +43,31 @@ start_vertex = int(input())
 # print()
 # g.printGraph()
 # Printing dfs traversal path from start_vertex
+
+# NOTE: if start vertex is not given we can start traversing from 0
 getPath_dfs(start_vertex)
+
+# Ex__1
+# V = 4
+# E = 3
+# 0 2
+# 2 1
+# 1 3
+#    0  1  2  3
+# 0  0  0  1  0
+# 1  0  0  1  1
+# 2  1  1  0  0
+# 3  0  1  0  0
+# O/P: 0-> 2-> ->1-> 3
+
+
+# Ex__2
+#    0  1  2  3  4  5  6
+# 0  0  1  1  0  0  0  0
+# 1  1  0  0  0  0  1  0
+# 2  1  0  0  1  0  0  1
+# 3  0  0  1  0  1  0  0
+# 4  0  0  0  1  0  1  0
+# 5  0  1  0  0  1  0  0
+# 6  0  0  1  0  0  0  0
+# O/P: 0-> 1-> 5 ->4-> 3-> 2-> 6
