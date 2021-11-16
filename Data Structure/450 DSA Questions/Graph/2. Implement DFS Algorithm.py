@@ -12,14 +12,20 @@ class Graph:
         for i in self.adjMatrix:
             print(i)
 
+    # This is recursive solution
     def dfs_helper(self, visited, sv):
+        # 1 . Mark visited matrix at start vertex == True
         visited[sv] = True
-        print(sv)
+        # print(sv)
+        # 2. for sv row find all the direct edges which are not visited previously
         for i in range(len(self.adjMatrix)):
             if self.adjMatrix[sv][i] > 0 and visited[i] == False:
+                # 3 . if found direct edge and is not visited previously,
+                # call dfs_helper on that vertex as sv,
                 self.dfs_helper(visited, i)
 
     def dfs(self, sv):
+        # creating a visited matrix for keep track of vertices which are already visited to avoid loop,
         visited = [False for i in range(self.nVertices)]
         self.dfs_helper(visited, sv)
 
