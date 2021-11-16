@@ -5,12 +5,21 @@ def clamp(minWidth, maxWidth, minFontSize, maxFontSize):
     print(slope)
     x = minWidth/16
     yInter = (-x * slope + minFontSize)
+    
 
     print(f'{minFontSize}rem , {yInter}rem + {slope * 100}vw, {maxFontSize}rem')
-
-
+    
 minWidth = int(input())
 maxWidth = int(input())
 minFontSize = float(input())
 maxFontSize = float(input())
+
+
 clamp(minWidth, maxWidth, minFontSize, maxFontSize)
+
+
+
+
+
+
+

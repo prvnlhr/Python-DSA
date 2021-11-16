@@ -1,6 +1,5 @@
-# In one numsay pass count number of 0's , 1's, 2's.
+# In one num say pass count number of 0's , 1's, 2's.
 # In second pass insert 0 1 and 2 according to counts
-
 
 def sort012(nums):
     # _________SOL 1
@@ -18,7 +17,7 @@ def sort012(nums):
 
     for j in range(len(nums)):
         if (countZero > 0):
-            nums[j] = 0
+            nums[j] = 0.
             countZero = countZero - 1
         elif (countOne > 0):
             nums[j] = 1
@@ -27,6 +26,7 @@ def sort012(nums):
             nums[j] = 2
             countTwo = countTwo - 1
     return nums
+
     # ___________SOL 2
     lo = 0
     hi = len(arr) - 1
