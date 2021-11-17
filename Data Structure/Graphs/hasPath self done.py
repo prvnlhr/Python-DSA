@@ -3,7 +3,6 @@ from Implement_Graph import Graph
 
 def hasPath(sv, ev):
     end = ev
-
     visited = [False for i in range(g.nVertices)]
     visited[sv] = True
 

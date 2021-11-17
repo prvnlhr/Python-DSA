@@ -12,7 +12,7 @@ class Graph:
         for i in self.adjMatrix:
             print(i)
 
-    # This is recursive solution
+    # __________ This is recursive solution
     def dfs_helper(self, visited, sv):
         # 1 . Mark visited matrix at start vertex == True
         visited[sv] = True
@@ -24,14 +24,26 @@ class Graph:
                 # call dfs_helper on that vertex as sv,
                 self.dfs_helper(visited, i)
 
-    def dfs(self, sv):
+    def dfs1(self, sv):
         # creating a visited matrix for keep track of vertices which are already visited to avoid loop,
         visited = [False for i in range(self.nVertices)]
         self.dfs_helper(visited, sv)
 
+    def dfs2(self, sv):
+        visited = [False for i in range(self.nVertices)]
+        for i in range(self.nVertices):
+            if (visited[i] == False):
+                self.dfs_helper(visited, i)
+
 
 def getPath_dfs(start_vertex):
-    g.dfs(start_vertex)
+    # __There are two dfs functions 1 and 2:
+    # function 1 only applicable for connected graph
+    # function 2 is applicable for both connected and non connected because,
+    # we are checking the remaining vertices from visited
+    # array i.e any vertex in visited is still false that means we still need to explore
+    g.dfs1(start_vertex)
+    # g.dfs2(start_vertex)
 
 
 edgeVertices = [int(i) for i in input().strip().split()]

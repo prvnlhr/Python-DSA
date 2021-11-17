@@ -1,19 +1,18 @@
 from Implement_Graph import Graph
 import queue
 
-def BfsHelper(sv, ev , visited):
+
+def BfsHelper(sv, ev, visited):
     mapp = {}
     q = queue.Queue()
 
-    if g.adjMatrix[sv][ev]==1 and sv==ev:
+    if g.adjMatrix[sv][ev] == 1 and sv == ev:
         ans = []
         ans.append(sv)
         return ans
 
     q.put(sv)
     visited[sv] = True
-
-
 
     while (q.empty() is False):
         front = q.get()
@@ -26,7 +25,7 @@ def BfsHelper(sv, ev , visited):
                 q.put(i)
 
                 visited[i] = True
-                if i==ev:
+                if i == ev:
                     ans = []
                     ans.append(ev)
                     value = mapp[ev]
@@ -39,16 +38,11 @@ def BfsHelper(sv, ev , visited):
     return []
 
 
-
-
-def getPathBFS(sv , ev ):
+def getPathBFS(sv, ev):
     # this function works for both connected and non connected graphs
     visited = [False for i in range(g.nVertices)]
 
-    return BfsHelper( sv , ev ,  visited)
-
-
-
+    return BfsHelper(sv, ev, visited)
 
 
 # __Main________________________________________________________________________________________________________________
@@ -68,4 +62,4 @@ ev = int(edges[1])
 res = getPathBFS(sv, ev)
 if len(res) != 0:
     for i in res:
-        print(i , end=" ")
+        print(i, end=" ")
