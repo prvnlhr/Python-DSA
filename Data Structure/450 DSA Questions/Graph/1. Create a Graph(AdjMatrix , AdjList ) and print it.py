@@ -5,7 +5,7 @@
 # but if a graph is sparse graph it is better to use adjList
 
 
-# FOR ADJACENCY LIST____
+# FOR ADJACENCY MATRIX____
 # class Graph:
 #     def __init__(self, nVertices):
 #         self.nVertices = nVertices
@@ -28,9 +28,9 @@ class Graph:
             self.adjList[i] = []
 
     def addEdge(self, v1, v2):
+
         self.adjList[v1].append(v2)
         self.adjList[v2].append(v1)
-
     def printGraph(self):
         for i in self.adjList:
             print(i, "-->", self.adjList[i])
@@ -61,13 +61,14 @@ for i in range(E):
 g.printGraph()
 # __________________________________________
 # ______Examples
-# Ex__1
+# Ex__1:
 # V = 4
 # E = 3
 # 0 2
 # 2 1
 # 1 3
-# Ex__2
+#
+# Ex__2:
 # V = 6
 # E = 8
 # 1 2
