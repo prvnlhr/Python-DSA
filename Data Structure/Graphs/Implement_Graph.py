@@ -5,7 +5,7 @@ class Graph:
     # __Constructor______________________________________________________________________________________________________
     def __init__(self, nVertices):
         self.nVertices = nVertices
-        self.adjMatrix = [[0 for j in range(nVertices)] for i in range(nVertices)]
+        self.adjMatrix = [[0 for j in range(nVertices+1)] for i in range(nVertices+1)]
 
     # __add Edge_____________________________________________________________________________________________________________
     def addEdge(self, v1, v2):
@@ -64,15 +64,19 @@ class Graph:
             if visited[i] is False:
                 self.BfsHelper(i, visited)
 
+
 # __Main______________________________________________________
 #
-# li = input().strip().split()
-# V = int(li[0])
-# E = int(li[1])
-# g = Graph(V)
-# for i in range(E):
-#     arr = input().strip().split()
-#     v1 = int(arr[0])
-#     v2 = int(arr[1])
-#     g.addEdge(v1 , v2)
+li = input().strip().split()
+V = int(li[0])
+E = int(li[1])
+g = Graph(V)
+for i in range(E):
+    arr = input().strip().split()
+    v1 = int(arr[0])
+    v2 = int(arr[1])
+    g.addEdge(v1, v2)
+for j in g.adjMatrix:
+    print(j)
+
 # # g.Bfs()
