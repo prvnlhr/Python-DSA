@@ -20,12 +20,20 @@
 #             print(i)
 
 # FOR ADJACENCY LIST____
+from collections import defaultdict
+
+
 class Graph:
     def __init__(self, nVertices):
         self.nVertices = nVertices
+        #1. can be implement using 2D array list as,
+        # adjList = [[] for i in range(nVertices+1)]
+        # 2. can be implement using dict as
         self.adjList = {}
         for i in range(self.nVertices + 1):
             self.adjList[i] = []
+        # 2. can be implement using defaultdict as
+        # self.adjList = defaultdict(list)
 
     def addEdge(self, v1, v2):
 
