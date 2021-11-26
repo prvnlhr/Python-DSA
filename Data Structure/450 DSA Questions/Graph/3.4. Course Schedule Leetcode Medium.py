@@ -36,33 +36,34 @@
 #     where N is the number of vertices and
 #     M is the number of edges in the graph.
 # '''
-# def isCycle(vertex, graph, visited, recursionStack):
-#     visited[vertex] = True
-#     recursionStack[vertex] = True
-#     print('vertex :', vertex, 'visited :', visited, 'recursionStack :', recursionStack)
-#     for adjVertex in graph[vertex]:
-#         print('adjVertex :', adjVertex)
-#         if visited[adjVertex] == False:
-#             if isCycle(adjVertex, graph, visited, recursionStack):
+# def isCycle(i, graph, visited, recursionPath):
+
+#     visited[i] = True
+#     recursionPath[i] = True
+
+
+#     for j in graph[i]:
+#         if visited[j] == False:
+#             if isCycle(j, graph, visited, recursionPath):
 #                 return True
-#         elif recursionStack[adjVertex]:
+#         elif recursionPath[j] ==True:
 #             return True
-#     recursionStack[vertex] = False
+
+
+#     recursionPath[i] = False
 #     return False
 #
+
+
 # def canFinish(prerequisites, n, m):
 #     graph = [[] for i in range(n + 1)]
 #     for i in range(m):
 #         graph[prerequisites[i][1]].append(prerequisites[i][0])
-#
-#     # print('graph', graph)
 #     visited = [False] * (n + 1)
-#     recursionStack = [False] * (n + 1)
-#     # print(visited)
-#     # print(recursionStack)
+#     recursionPath = [False] * (n + 1)
 #     for i in range(1, n + 1):
 #         if visited[i] == False:
-#             if isCycle(i, graph, visited, recursionStack):
+#             if isCycle(i, graph, visited, recursionPath):
 #                 return "No"
 #     return "Yes"
 #
@@ -84,12 +85,12 @@ def canFinish(numCourses, prerequisites):
     n = numCourses
     # 1. Construct a graph  from prerequisites::
     adjList = [[] for i in range(n)]
-    # visited array:
-    visited = [0 for i in range(n)]
-
     for v1, v2 in prerequisites:
         adjList[v1].append(v2)
     print(adjList)
+
+    # maintain visited array:
+    visited = [0 for i in range(n)]
 
     # 2. DFS to check cycle::
     def dfs(i):
