@@ -99,6 +99,7 @@ print(dfsCycleCheckMat(adjMatrix, V))
 print(dfsCycleCheckList(adjList, V))
 
 # Time Complexity: O(V+E).
-# The program does a simple DFS Traversal of the graph which is represented using adjacency list. So the time complexity is O(V+E).
+# The program does a simple DFS Traversal of the graph which is
+# represented using adjacency list. So the time complexity is O(V+E).
 # Space Complexity: O(V).
 # To store the visited array O(V) space is required.

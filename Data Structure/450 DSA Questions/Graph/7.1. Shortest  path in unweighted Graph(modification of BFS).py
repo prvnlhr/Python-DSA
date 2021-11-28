@@ -5,6 +5,8 @@ import sys
 # Time Complexity :: O(V+ E)
 # Space Complexity :: O(V) + O(V) for queue and distArray
 
+
+# It is BFS but slightly modified__
 def shortestPathHelper(adjList, nVertices, distArray, src):
     q = queue.Queue()
     q.put(src)
@@ -14,7 +16,7 @@ def shortestPathHelper(adjList, nVertices, distArray, src):
         dist_of_parent = distArray[parent_vertex]
         for adjNode in adjList[parent_vertex]:
             dist_of_adj_node = dist_of_parent + 1
-            if distArray[adjNode] > dist_of_adj_node:
+            if dist_of_adj_node < distArray[adjNode]:
                 distArray[adjNode] = dist_of_adj_node
                 q.put(adjNode)
     return distArray
