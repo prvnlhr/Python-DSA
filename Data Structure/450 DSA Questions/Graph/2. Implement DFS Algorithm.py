@@ -1,3 +1,6 @@
+# Time Complexity__
+# If the graph is represented as adjacency list:: O(V) + O(E) = O(V + E)
+# If the graph is represented as an adjacency matrix (a V x V array):  O(V * V) = O(V2).
 class Graph:
 
     def __init__(self, nVertices):
