@@ -28,11 +28,11 @@ class Graph:
     def getMinvertex(self, visited, weight):
         minVertex = -1
         for i in range(self.nVertices):
-            if (visited[i] is False and (minVertex == -1 or (weight[minVertex] > weight[i]))):
+            if (visited[i] is False and (minVertex == -1 or (weight[i] < weight[minVertex]))):
                 minVertex = i
         return minVertex
 
-    def prims(self):
+    def dijkstra(self):
         visited = [False for i in range(self.nVertices)]
         dist = [sys.maxsize for i in range(self.nVertices)]
         dist[0] = 0
