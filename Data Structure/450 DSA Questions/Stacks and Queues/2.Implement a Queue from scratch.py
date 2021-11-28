@@ -33,7 +33,6 @@ class Queue:
 
 
 queue = Queue()
-
 queue.Enqueue(1)
 queue.Enqueue(2)
 queue.Enqueue(3)
