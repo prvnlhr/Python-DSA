@@ -4,11 +4,14 @@
 def minimumSumArray(arr, k):
     currWinSum = 0
 
+
+
     for i in range(k):
         currWinSum = currWinSum + arr[i]
 
     minimumSum = currWinSum
     minArrayIndex = k - 1
+
 
 
 
