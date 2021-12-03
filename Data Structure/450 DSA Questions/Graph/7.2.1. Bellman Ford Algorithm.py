@@ -1,6 +1,7 @@
 import sys
 
 
+# Bellman-Ford does not work with undirected graph with negative
 def bellman_ford(edgeList, V, src):
     # maintaining distArray which will give shortest distance from src of all nodes
     distArray = [sys.maxsize for _ in range(V)]
