@@ -1,3 +1,4 @@
+# T: O(n) , S:O(1)
 def removeElement(nums, val):
     i = 0
     while i < len(nums):
@@ -5,7 +6,6 @@ def removeElement(nums, val):
             del nums[i]
         else:
             i += 1
-
     return len(nums)
 
 
