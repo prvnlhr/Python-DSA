@@ -1,6 +1,8 @@
 ## Read input as specified in the question.
 ## Print output as specified in the question.
 
+
+# Time Complexity of the above program is O(V^2)
 import sys
 
 
@@ -38,14 +40,18 @@ class Graph:
         weight = [sys.maxsize for i in range(self.nVertices)]
 
         for i in range(self.nVertices - 1):
+
             minVertex = self.minvertex(visited, weight)
             visited[minVertex] = True
+
             for j in range(self.nVertices):
                 if (self.adjMatrix[minVertex][j] > 0 and visited[j] is False):
                     if (weight[j] > self.adjMatrix[minVertex][j]):
                         weight[j] = self.adjMatrix[minVertex][j]
                         parent[j] = minVertex
 
+        # printing result
+        print(parent)
         for i in range(1, self.nVertices):
             if parent[i] > i:
                 print(str(i) + " " + str(parent[i]) + " " + str(weight[i]))
@@ -65,3 +71,21 @@ for i in range(E):
     g.addEdge(v1, v2, w)
 
 g.prims()
+
+# Ex__1
+# 9 14
+# 0 1 4
+# 0 7 8
+# 1 2 8
+# 1 7 11
+# 2 3 7
+# 2 8 2
+# 2 5 4
+# 3 4 9
+# 3 5 14
+# 4 5 10
+# 5 6 2
+# 6 7 1
+# 6 8 6
+# 7 8 7
+# O/P : [-1, 0, 1, 2, 3, 2, 5, 6, 2]
