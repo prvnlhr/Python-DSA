@@ -35,6 +35,7 @@ class PriorityQueue:
         self.pq.append(pqNode)
         self.__percolateUp()
 
+    # O(logN)
     def downheapify(self):
         parentIndex = 0
         leftIndex = 2 * parentIndex + 1
