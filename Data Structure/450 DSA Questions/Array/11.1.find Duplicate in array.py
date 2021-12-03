@@ -1,5 +1,7 @@
 from ArrayTakeInputUse import *
 
+
+# Naive solution T: O(N^2) ,S:O(1)
 def findDuplicate(arr, n):
     for i in range(n):
         for j in range(n):
