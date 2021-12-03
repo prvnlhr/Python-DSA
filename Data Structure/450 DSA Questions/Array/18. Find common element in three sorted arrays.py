@@ -1,5 +1,5 @@
 # Using Intersection of array technique
-# O(n1+n2+n3)
+# O(n1 +n2 + n3)
 # space O(1)
 def findCommon(a1, a2, a3):
     i = 0
