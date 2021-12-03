@@ -1,20 +1,22 @@
-# In one num say pass count number of 0's , 1's, 2's.
-# In second pass insert 0 1 and 2 according to counts
-
 def sort012(nums):
-    # _________SOL 1
+    # _________SOL 1  T: O(N), S: O(1)
+    # In first pass count number of 0's , 1's, 2's.
+    # In second pass insert 0 1 and 2 according to counts
     countZero = 0
     countOne = 0
     countTwo = 0
 
     for i in range(len(nums)):
+        # O(N)
+        # Count zeros,ones,two
         if nums[i] == 0:
             countZero = countZero + 1
         if nums[i] == 1:
             countOne = countOne + 1
         if nums[i] == 2:
             countTwo = countTwo + 1
-
+    # Replace element according to counts
+    # O(N)
     for j in range(len(nums)):
         if (countZero > 0):
             nums[j] = 0.
@@ -27,7 +29,7 @@ def sort012(nums):
             countTwo = countTwo - 1
     return nums
 
-    # ___________SOL 2
+    # ___________SOL 2 , DUTCH NATIONAL FLAG APPROACH (GFG Solution) T: O(N), S: O(1)
     lo = 0
     hi = len(arr) - 1
     mid = 0
