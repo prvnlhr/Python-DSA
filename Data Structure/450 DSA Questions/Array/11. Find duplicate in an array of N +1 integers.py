@@ -3,7 +3,7 @@
 # output: 2
 
 # SOL 1: sort the array. Repeating elements comes together
-# Time O(nLogn) . Needs to modify the array by sorting
+# Time O(NLogN) . Needs to modify the array by sorting
 
 # SOL 2: Using map\set:
 # Time O(n) and Space(n)
