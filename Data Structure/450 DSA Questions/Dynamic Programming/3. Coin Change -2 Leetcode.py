@@ -1,22 +1,39 @@
 # No ways to make coin change problem
-# example 1 :for N = 4 and S = {1,2,3},
+# example 1 : for V = 4 and S = {1,2,3},
 # there are four solutions: {1,1,1,1},{1,1,2},{2,2},{1,3}.
 # So output should be 4.
-# example 2: for N = 10 and S = {2, 5, 3, 6},
+#
+# example 2: for V = 10 and S = {2, 5, 3, 6},
 # there are five solutions: {2,2,2,2,2}, {2,2,3,3}, {2,2,6}, {2,3,5} and {5,5}.
 # So the output should be 5.
-
+#
+# example 2: for V = 5 and S = {1, 2, 5},
+# there are five solutions: {2,2,1}, {2,1,1,1}, {1,1,1,1,1}.
+# So the output should be 4.
+# 5 = 5
+# 5 = 2 + 2 + 1
+# 5 = 2 + 1 + 1 + 1
+# 5 = 1 + 1 + 1 + 1 + 1
+#
+#
 # _RECURSIVE:
-# def coinChangeREC(D, V, n):
-#     if V == 0:
-#         return 1
-#     if V < 0 or n < 0:
-#         return 0
-#     if (n <= 0 and V >= 1):
-#         return 0
-#     including_deno = coinChangeREC(D, V - D[n - 1], n)
-#     excluding_deno = coinChangeREC(D, V, n - 1)
-#     return including_deno + excluding_deno
+def coinChangeREC(D, V, n):
+    # __If V is 0 then there is 1 solution (do not include any coin)
+    if V == 0:
+        return 1
+
+    # __ If V is less than 0 then no solution exists
+    if V < 0 or n < 0:
+        return 0
+
+    # __ If there are no coins and V is greater than 0, then no solution exist
+    if (n <= 0 and V >= 1):
+        return 0
+
+    including_denominations = coinChangeREC(D, V - D[n - 1], n)
+    excluding_denominations = coinChangeREC(D, V, n - 1)
+    return including_denominations + excluding_denominations
+
 
 # _MEMOIZATION:
 def coinChangeMemo(D, V, n, dp):
