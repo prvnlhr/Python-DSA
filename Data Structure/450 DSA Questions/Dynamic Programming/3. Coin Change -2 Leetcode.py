@@ -18,7 +18,7 @@
 #
 # _RECURSIVE:
 def coinChangeREC(D, V, n):
-    # __If V is 0 then there is 1 solution (do not include any coin)
+    # __If V is 0 then there is , 1 solution (do not include any coin)
     if V == 0:
         return 1
 
@@ -37,30 +37,50 @@ def coinChangeREC(D, V, n):
 
 # _MEMOIZATION:
 def coinChangeMemo(D, V, n, dp):
+    if n == 0:
+        return 0
     if V == 0:
         return 1
-    if V < 0 or n < 0:
-        return 0
-    if (n <= 0 and V >= 1):
-        return 0
-
-    if dp[n][V - D[n - 1]] == -1:
-        including_deno = coinChangeMemo(D, V - D[n - 1], n, dp)
-        dp[n][V - D[n - 1]] = including_deno
-    else:
-        including_deno = dp[n][V - D[n - 1]]
-
-    if dp[n - 1][V] == -1:
+    if dp[n][V] != -1:
+        return dp[n][V]
+    if D[n - 1] <= V:
+        including_deno = coinChangeMemo(D, V - D[n - 1], n - 1, dp)
         excluding_deno = coinChangeMemo(D, V, n - 1, dp)
-        dp[n - 1][V] = excluding_deno
+        ans = including_deno + excluding_deno
+        dp[n][V] = ans
+        return ans
     else:
-        excluding_deno = dp[n - 1][V]
+        ans = coinChangeMemo(D, V, n - 1, dp)
+        dp[n][V] = ans
+        return ans
 
-    dp[n][V] = including_deno + excluding_deno
-    return dp[n][V]
+
+# _MEMOIZATION:
+# def coinChangeMemo(D, V, n, dp):
+#     if V == 0:
+#         return 1
+#     if V < 0 or n < 0:
+#         return 0
+#     if (n <= 0 and V >= 1):
+#         return 0
+#
+#     if dp[n][V - D[n - 1]] == -1:
+#         including_deno = coinChangeMemo(D, V - D[n - 1], n, dp)
+#         dp[n][V - D[n - 1]] = including_deno
+#     else:
+#         including_deno = dp[n][V - D[n - 1]]
+#
+#     if dp[n - 1][V] == -1:
+#         excluding_deno = coinChangeMemo(D, V, n - 1, dp)
+#         dp[n - 1][V] = excluding_deno
+#     else:
+#         excluding_deno = dp[n - 1][V]
+#
+#     dp[n][V] = including_deno + excluding_deno
+#     return dp[n][V]
 
 
-# Main
+# Main__
 n = int(input())
 D = [int(i) for i in input().strip().split()]
 V = int(input())
