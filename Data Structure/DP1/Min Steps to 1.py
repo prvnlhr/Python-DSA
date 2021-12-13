@@ -17,7 +17,7 @@ def minstepsto1R(n):
     return ans
 
 
-# Memeoization__________________________________________________________________________________________________________
+# Memeoization_______O(N)___________________________________________________________________________________________________
 def minStepsTo1M(n):
     dp = [-1 for i in range(n + 1)]
     return minStepsM(n, dp)
@@ -58,7 +58,9 @@ def minStepsIterSol1(n):
     dp = [-1 for i in range(n + 1)]
     dp[1] = 0
     dp[0] = 0
+
     for i in range(2, n + 1):
+
         if dp[i] == -1:
             ans1 = dp[i - 1]
 
@@ -85,7 +87,7 @@ def minStepsIterSol1(n):
     return dp[n]
 
 
-# CN solution Iterstive_________________________________________________________________________________________________
+# CN solution Iterstive___O(N)_______________________________________________________________________________________________
 def minStepsTo1Iterative(n):
     dp = [-1 for i in range(n + 1)]
     dp[0] = 1
@@ -93,15 +95,19 @@ def minStepsTo1Iterative(n):
     bigNum = sys.maxsize
 
     for i in range(2, n + 1):
+
         ans1 = dp[i - 1]
+
         if i % 2 == 0:
             ans2 = dp[i // 2]
         else:
             ans2 = bigNum
+
         if i % 3 == 0:
             ans3 = dp[i // 3]
         else:
             ans3 = bigNum
+
         dp[i] = 1 + min(ans1, ans2, ans3)
     return dp[n]
 
