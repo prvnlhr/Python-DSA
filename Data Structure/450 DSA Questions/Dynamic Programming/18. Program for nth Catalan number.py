@@ -1,4 +1,5 @@
-# Catalan numbers are a sequence of natural numbers that occurs in many interesting counting problems like following.
+# Catalan numbers are a sequence of natural numbers that occurs in many interesting
+# counting problems like following.
 #
 # 1. Count the number of expressions containing n pairs of parentheses which are correctly matched.
 # For n = 3, possible expressions are ((())), ()(()), ()()(), (())(), (()()).
@@ -14,8 +15,8 @@
 # See this for more applications.
 # The first few Catalan numbers for n = 0, 1, 2, 3, … are 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, …
 
-# ________________________________
-# res = res + f(i) * f(n-i-1)
+# nth Catalan Number formula__ where, i --> n .
+# res = res + f(i) * f(n - i - 1)
 # --------------------------------
 
 
