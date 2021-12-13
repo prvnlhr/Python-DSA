@@ -1,3 +1,9 @@
+# The value of C(n, k) can be recursively calculated using
+# the following standard formula for Binomial Coefficients.
+
+# C(n, k) = C(n-1, k-1) + C(n-1, k)
+# C(n, 0) = C(n, n) = 1
+
 
 def binomialCoeffRec(n, k):
     if k > n:
@@ -18,6 +24,7 @@ def binomialCoeffMemo(n, k, dp):
         b = binomialCoeffMemo(n - 1, k, dp)
         dp[n][k] = a + b
         return dp[n][k]
+
     else:
         return dp[n][k]
 
@@ -26,6 +33,7 @@ def binomialCoeffIter(n, k):
     dp = [[0 for i in range(k + 1)] for j in range(n + 1)]
 
     for i in range(0, n + 1):
+        # NOTE: see for loop range
         for j in range(min(i, k) + 1):
             if j == 0 or j == i:
                 dp[i][j] = 1
