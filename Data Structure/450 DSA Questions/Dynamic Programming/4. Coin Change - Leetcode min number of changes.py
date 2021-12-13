@@ -42,13 +42,15 @@ def coinChange(coins, amount):  # Example: coins = [1 2 5], amount = 5
     # 1st pass: coin = 1 -> dp = [0 1 2 3 4 5]
     # 2nd pass: coin = 2 -> dp = [0 1 1 2 2 3]
     # 3rd pass: coin = 5 -> dp = [0 1 1 2 2 1]
+
     for coin in coins:
-        for target in range(1, len(dp)):
+        for i in range(1, len(dp)):
             # If coin can be used to make up part of the amount
-            if coin <= target:
+            if coin <= i:
                 # Try use it and check what the min number of coins to make up
                 # the rest `dp[target-coin]` and add 1 (rest + current coin)
-                dp[target] = min(dp[target], dp[target - coin] + 1)
+                ans = 1 + dp[i - coin]
+                dp[i] = min(dp[i], ans)
 
     # if dp[amount] couldn't be used then no
     # combination of coins could make up target amount
