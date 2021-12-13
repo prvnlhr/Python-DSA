@@ -12,6 +12,8 @@
 # {1, 3}, {2} : 1 and 3 are paired but 2 is single.
 # Note that {1, 2} and {2, 1} are considered same.
 
+
+# IDEA::
 # f(n) = ways n people can remain single
 #        or pair up.
 #
@@ -21,16 +23,16 @@
 # 2) n-th person pairs up with any of the
 #    remaining n - 1 persons. We get (n - 1) * f(n - 2)
 #
-# Therefore we can recursively write f(n) as:
-
-# __________________________________________
-# f(n) = f(n - 1) + (n - 1) * f(n - 2)
+# __Therefore we can recursively write f(n) as:
+#      f(n) = f(n - 1) + (n - 1) * f(n - 2)
 # ------------------------------------------
 
 
 def pairFriendsRec(n):
+    # Base case
     if n <= 2:
         return n
+
     return pairFriendsRec(n - 1) + (n - 1) * pairFriendsRec(n - 2)
 
 
