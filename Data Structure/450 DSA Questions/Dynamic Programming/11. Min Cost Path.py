@@ -6,9 +6,16 @@ import sys
 # traverse through that cell. The total cost of a path to reach (m, n) is the sum of all the costs
 # on that path (including both source and destination). You can only traverse down, right and
 # diagonally lower cells from a given cell, i.e., from a given cell (i, j),
-# cells (i+1, j), (i, j+1), and (i+1, j+1) can be traversed.
+# cells (i + 1, j), (i, j + 1), and (i + 1, j + 1) can be traversed.
 # You may assume that all costs are positive integers.
 
+# Ex__
+# 1  2  3
+# 4  8  2
+# 1  5  3
+#
+# The path with minimum cost is (0, 0) –> (0, 1) –> (1, 2) –> (2, 2).
+# The cost of the path is 8 (1 + 2 + 2 + 3).
 
 # 1) Optimal Substructure
 # The path to reach (m, n) must be through one of the 3 cells: (m-1, n-1) or (m-1, n) or (m, n-1).
