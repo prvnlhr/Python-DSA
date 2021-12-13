@@ -25,13 +25,14 @@ def permutationCoeffIter(n, k):
     dp = [[0 for i in range(k + 1)] for j in range(n + 1)]
 
     for i in range(n + 1):
+
         for j in range(min(i, k) + 1):
 
             if j == 0:
                 dp[i][j] = 1
             else:
                 dp[i][j] = dp[i - 1][j] + j * dp[i - 1][j - 1]
-            # IMPORTANT:: for j>i P(i,j) =0
+            # IMPORTANT:: for j > i P(i,j) = 0
             if j < k:
                 dp[i][j + 1] = 0
     return dp[n][k]
