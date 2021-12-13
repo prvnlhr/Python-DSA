@@ -17,6 +17,14 @@ import math, sys
 # We can write 100 as 10^2 also, 100 can be written as (5^2) + (5^2) + (5^2) + (5^2),
 # but this representation requires 4 squares.
 # So, in this case, the expected answer would be 1, that is, 10^2.
+
+
+# IDEA__
+# The idea is simple, we start from 1 and go to a number whose square
+# is smaller than or equals n. For every number x, we recur for n - x.
+# Below is the recursive formula.
+# _____ If n = 1 and x * x <= n
+
 # Recursive______________________________
 def minSquares(n):
     if n == 0:
