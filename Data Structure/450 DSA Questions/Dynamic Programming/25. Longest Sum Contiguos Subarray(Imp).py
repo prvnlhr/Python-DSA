@@ -30,7 +30,7 @@ import sys
 #
 #   max_so_far = max_ending_here = 0
 #
-#   for i=0,  a[0] =  -2
+#   for i = 0,  a[0] =  -2
 #   max_ending_here = max_ending_here + (-2)
 #   Set max_ending_here = 0 because max_ending_here < 0
 #
