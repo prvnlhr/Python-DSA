@@ -8,13 +8,13 @@ def editDistanceREC(s1, s2, m, n):
     if s1[m - 1] == s2[n - 1]:
         return editDistanceREC(s1, s2, m - 1, n - 1)
     # else we need to find cost of all three operations and return minimum of them
-    dist1 = 1 + editDistanceREC(s1, s2, m, n - 1)  # insert
-    dist2 = 1 + editDistanceREC(s1, s2, m - 1, n)  # remove
-    dist3 = 1 + editDistanceREC(s1, s2, m - 1, n - 1)  # replace
-    return min(dist1, dist2, dist3)
+    dist1 = editDistanceREC(s1, s2, m, n - 1)  # insert
+    dist2 = editDistanceREC(s1, s2, m - 1, n)  # remove
+    dist3 = editDistanceREC(s1, s2, m - 1, n - 1)  # replace
+    return 1 + min(dist1, dist2, dist3)
 
 
-# Memoization solution:: Time-->O(m*n) Space--> O(m*n)
+# Memoization solution:: Time--> O(m * n) Space--> O(m * n)
 def editDistanceMEMO(s1, s2, dp):
     if len(s1) == 0:
         return len(s2)
