@@ -26,7 +26,6 @@ def lisREC(arr, prev, currpos):
     including = 0
     if prev < 0 or arr[currpos] > arr[prev]:
         including = 1 + lisREC(arr, currpos, currpos + 1)
-
     not_including = lisREC(arr, prev, currpos + 1)
     return max(including, not_including)
 
