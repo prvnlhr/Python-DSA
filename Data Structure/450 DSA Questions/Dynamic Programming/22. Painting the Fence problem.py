@@ -4,6 +4,7 @@
 #
 # Examples:
 #
+#
 # Input : n = 2 k = 4
 # Output : 16
 # We have 4 colors and 2 posts.
