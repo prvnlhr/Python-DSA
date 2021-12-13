@@ -1,3 +1,6 @@
+import queue
+
+
 class Stack:
 
     def __init__(self):
@@ -26,6 +29,8 @@ class Stack:
 
     def length(self):
         return self.size
+
+
 
 
 stackObj = Stack()
