@@ -4,14 +4,12 @@
 # What is the maximum stolen value?
 # Example::
 
-# Input: hval[] = {6, 7, 1, 3, 8, 2, 4}
+# Input: hVal[] = {6, 7, 1, 3, 8, 2, 4}
 # Output: 19
-#
 # Explanation: The thief will steal 6, 1, 8 and 4 from the house.
 #
-# Input: hval[] = {5, 3, 4, 11, 2}
+# Input: hVal[] = {5, 3, 4, 11, 2}
 # Output: 16
-#
 # Explanation: Thief will steal 5 and 11
 
 
@@ -19,8 +17,8 @@
 # [ 1, 3, 4, 4, 3, 3, 7, 2, 3, 4, 5, 1 ]
 # 1 or 3 ? 3 is bigger, so the robber will go to steal 3
 #
-# On the third house, the robber will think about whether it’s better to steal only 3 or 1+4 =5.
-# The robber will steal 5 as it’s a bigger number. Then the robber will decide if he should steal 5 or 3+4=7.
+# On the third house, the robber will think about whether it’s better to steal only 3 or 1 + 4 = 5.
+# The robber will steal 5 as it’s a bigger number. Then the robber will decide if he should steal 5 or 3 + 4 = 7.
 # The robber will go for 7 and so on. This notation can be written as below:
 #
 #  1  3  5  7  8 10 15 15 18 19 23 23
