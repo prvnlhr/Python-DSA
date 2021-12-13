@@ -4,15 +4,15 @@
 # Examples::
 # Input 1:
 # 4
-# 1 2 4 5
-# 5 4 8 6
-# 5
+# V --> 5 4 8 6
+# W --> 1 2 4 5
+# maxW --> 5
 # output 1: 13
 
 # Input 2:
 # 5
-# 12 7 11 8 9
 # 24 13 23 15 16
+# 12 7 11 8 9
 # 26
 # output 2: 51
 
@@ -22,7 +22,7 @@ def knapSackRec(weights, values, maxWeights, n):
     if (n == 0 or maxWeights == 0):
         return 0
 
-    if (weights[n - 1] <= maxWeights):
+    if weights[n - 1] <= maxWeights:
         a = knapSackRec(weights, values, maxWeights, n - 1)
         b = values[n - 1] + knapSackRec(weights, values, maxWeights - weights[n - 1], n - 1)
         return max(a, b)
@@ -35,12 +35,12 @@ def knapSackMemo(weights, values, maxWeights, n, dp):
     if n == 0 or maxWeights == 0:
         return 0
 
-    if (weights[n - 1] > maxWeights):
+    if weights[n - 1] > maxWeights:
         ans = knapSackMemo(weights, values, maxWeights, n - 1, dp)
         dp[n][maxWeights] = ans
         return ans
     else:
-        if (dp[n][maxWeights] == -1):
+        if dp[n][maxWeights] == -1:
             a = knapSackMemo(weights, values, maxWeights, n - 1, dp)
             b = values[n - 1] + knapSackMemo(weights, values, maxWeights - weights[n - 1], n - 1, dp)
             ans = max(a, b)
@@ -69,8 +69,8 @@ def knapSackIter(weights, values, maxWeight, n):
 def knapSack(weights, values, maxWeight, n):
     dp = [[-1 for i in range(maxWeight + 1)] for j in range(n + 1)]
     # return knapSackRec(weights, values, maxWeight, n)
-    # return knapSackMemo(weights, values, maxWeight, n, dp)
-    return knapSackIter(weights, values, maxWeight, n)
+    return knapSackMemo(weights, values, maxWeight, n, dp)
+    # return knapSackIter(weights, values, maxWeight, n)
 
 
 weights = [int(i) for i in input().strip().split()]
