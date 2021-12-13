@@ -4,7 +4,7 @@
 # from the row permanently, and receives the value of the coin. Determine
 # the maximum possible amount of money we can definitely win if we move first.
 
-# Note: The opponent is as clever as the user.
+# NOTE: The opponent is as clever as the user.
 #
 # Let us understand the problem with few examples:
 #
