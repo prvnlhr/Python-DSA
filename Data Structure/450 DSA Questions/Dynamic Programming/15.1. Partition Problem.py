@@ -1,6 +1,6 @@
 # Partition problem is to determine whether a given set can be partitioned into two subsets
 # such that the sum of elements in both subsets is the same.
-# Examples:
+# Examples__:
 # arr[] = {1, 5, 11, 5}
 # Output: true
 # The array can be partitioned as {1, 5, 5} and {11}
@@ -68,6 +68,8 @@ def partition(arr):
 
     else:
         dp = [[-1 for i in range((sum // 2) + 1)] for j in range(n + 1)]
+
+        # from here onwards it is subset sum problem
         ans = partitionMemo(arr, n, sum // 2, dp)
         for i in dp:
             print(i)
@@ -84,6 +86,7 @@ def partitionIterDp(arr):
     if sum % 2 != 0:
         return False
 
+    # from here onwards it is subset sum problem
     dp = [[False for i in range((sum // 2) + 1)] for j in range(n + 1)]
 
     for i in range(n + 1):
