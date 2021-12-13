@@ -1,4 +1,4 @@
-# Given a gold mine of n*m dimensions. Each field in this mine contains a positive integer
+# Given a gold mine of n * m dimensions. Each field in this mine contains a positive integer
 # which is the amount of gold in tons. Initially the miner is at first column but can be
 # at any row. He can move only (right->,right up /,right down\) that is from a given cell,
 # the miner can move to the cell diagonally up towards the right or right or diagonally down
@@ -24,12 +24,13 @@ def goldMine(m, n, mine):
             else:
                 right_of_curr = dp[row][col + 1]
 
-            # if row is 0th and col is last ,we don't have right_up so, ==0
+            # if row is 0th and col is last ,we don't have right_up so, == 0
             if row == 0 or col == n - 1:
                 right_up_of_curr = 0
             else:
                 right_up_of_curr = dp[row - 1][col + 1]
-            # if last row and last col, we don't have right_down, so ==0
+
+            # if last row and last col, we don't have right_down, so == 0
             if row == m - 1 or col == n - 1:
                 right_down_of_curr = 0
             else:
