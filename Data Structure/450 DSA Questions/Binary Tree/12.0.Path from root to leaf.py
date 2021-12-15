@@ -7,7 +7,6 @@ def Helper(root, path):
     path.append(root.data)
     if root.left is None and root.right is None:
         print(path)
-
     Helper(root.left, path)
     Helper(root.right, path)
     path.pop()
