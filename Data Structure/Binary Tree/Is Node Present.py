@@ -7,7 +7,10 @@ class BinaryTreeNode:
         self.left = None
         self.right = None
 
+
 flag = False
+
+
 def isNodePresent(root, x):
     global flag
     if root == None:
@@ -15,8 +18,8 @@ def isNodePresent(root, x):
     if root.data == x:
         flag = True
         return flag
-    isNodePresent(root.left , x)
-    isNodePresent(root.right , x)
+    isNodePresent(root.left, x)
+    isNodePresent(root.right, x)
     return flag
 
 
