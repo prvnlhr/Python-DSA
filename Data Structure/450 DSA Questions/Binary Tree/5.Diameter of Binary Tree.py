@@ -1,7 +1,21 @@
 import BinaryTreeInputPrint
 
+# The diameter of a tree can be defined as the maximum
+# distance between two leaf nodes.
+# Here, the distance is measured in terms of the total
+# number of nodes present along the path of the two leaf nodes, including both the leaves.
+#
+# The diameter of a tree T is the largest of the following quantities:
+# __the diameter of T’s left subtree.
+# __the diameter of T’s right subtree.
+# __the longest path between leaves that goes,
+# __through the root of T (this can be computed from the heights of the subtrees of T)
+#
 # Leetcode Sol O(n):
+
 ans = 1
+
+
 def depth(root):
     global ans
     if root is None:
@@ -12,9 +26,11 @@ def depth(root):
     ans = max(ans, l + r + 1)
     return max(l, r) + 1
 
+
 # __________OR____________________________
 def dia(root):
     ans = 1
+
     def depth(root):
         global ans
         if root is None:
@@ -24,6 +40,7 @@ def dia(root):
         r = depth(root.right)
         ans = max(ans, l + r + 1)
         return max(l, r) + 1
+
     depth(root)
     return ans - 1
 
