@@ -1,10 +1,11 @@
 import BinaryTreeInputPrint
 
+
 def findPath(root, pathArr, node):
     if root is None:
         return False
-    pathArr.append(root.data)
 
+    pathArr.append(root.data)
     if root.data == node:
         return True
 
