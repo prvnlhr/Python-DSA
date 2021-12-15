@@ -1,6 +1,13 @@
 import BinaryTreeInputPrint
 
 
+# A balanced binary tree is also known as height balanced tree.
+# It is defined as binary tree in when the difference between
+# the height of the left subtree and right subtree is not more than m,
+# where m is usually equal to 1. The height of a tree is the number
+# of edges on the longest path between the root node and the leaf node.
+
+
 # __O(n^2):
 def height(root):
     if root is None:
@@ -25,7 +32,7 @@ def isBalanced(root):
         return True
 
 
-# O(n):
+# __final O(n):
 def isBalancedAndHeight(root):
     if root is None:
         return 0, True
