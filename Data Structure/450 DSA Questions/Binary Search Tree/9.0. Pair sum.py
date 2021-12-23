@@ -1,38 +1,4 @@
-import queue
-import sys
-
-
-class BinaryTreeNode:
-    def __init__(self, data):
-        self.data = data
-        self.left = None
-        self.right = None
-
-
-def buildLevelTree(levelorder):
-    index = 0
-    length = len(levelorder)
-    if length <= 0 or levelorder[0] == -1:
-        return None
-    root = BinaryTreeNode(levelorder[index])
-    index += 1
-    q = queue.Queue()
-    q.put(root)
-    while not q.empty():
-        currentNode = q.get()
-        leftChild = levelorder[index]
-        index += 1
-        if leftChild != -1:
-            leftNode = BinaryTreeNode(leftChild)
-            currentNode.left = leftNode
-            q.put(leftNode)
-        rightChild = levelorder[index]
-        index += 1
-        if rightChild != -1:
-            rightNode = BinaryTreeNode(rightChild)
-            currentNode.right = rightNode
-            q.put(rightNode)
-    return root
+import BST
 
 
 # _CN_________________________________________________________________________________
@@ -110,7 +76,7 @@ def printNodesSumToS1(root, s):
                     top = top.left
 
 
-# ___GeeksForGeeks___________________________________________________________________
+# ___GeeksForGeeks 100% correct___________________________________________________________________
 def printNodesSumToS2(root, s):
     d = set()
     sum = s
@@ -144,8 +110,7 @@ def findPair(root, sum, set):
 # _________________________________________________________________________________________
 
 # Main
-levelOrder = [int(i) for i in input().strip().split()]
-root = buildLevelTree(levelOrder)
+root = BST.buildLevelTree()
 s = int(input())
 printNodesSumToS1(root, s)
 print()

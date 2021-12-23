@@ -1,6 +1,21 @@
 import BinaryTreeInputPrint
 
 
+# Given a binary tree, print boundary nodes of the binary tree
+# Anti-Clockwise starting from the root. The boundary includes
+# left boundary, leaves, and right boundary in order without
+# duplicate nodes. (The values of the nodes may still be duplicates.)
+# The LEFT BOUNDARY is defined as the path from the root to the
+# left-most node. The RIGHT BOUNDARY is defined as the path from
+# the root to the right-most node. If the root doesn't have left
+# subtree or right subtree, then the root itself is left boundary
+# or right boundary. Note this definition only applies to the input
+# binary tree, and not apply to any subtrees.
+# The LEFT_MOST node is defined as a leaf node you could reach
+# when you always firstly travel to the left subtree if it exists.
+# If not, travel to the right subtree. Repeat until you reach a leaf node.
+# The right-most node is also defined in the same way with left and right exchanged.
+
 def printLeafNodes(root):
     if root is None:
         return
@@ -16,6 +31,9 @@ def printLeftBoundary(root):
     if root.left is not None:
         print(root.data, end=' ')
         printLeftBoundary(root.left)
+    # now , why we are calling on right node ,because there can be
+    # a case where a zig zig alignment is there,
+    # Ex__1 2 3 4 5 6 7 -1 8 -1 -1 -1 -1 -1 -1 9 -1 -1 10 -1 -1
     elif root.right is not None:
         print(root.data, end=' ')
         printLeftBoundary(root.right)
@@ -35,7 +53,9 @@ def printRightBoundary(root):
 def printBoundary(root):
     if root is None:
         return
+
     print(root.data, end=' ')
+
     printLeftBoundary(root.left)
     printLeafNodes(root.left)
     printLeafNodes(root.right)

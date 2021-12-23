@@ -7,6 +7,7 @@ count = 0
 def kthSmallest(root):
     global count
     global k
+
     if root is None:
         return
 
@@ -15,6 +16,7 @@ def kthSmallest(root):
     if left != None:
         return left
     k = k - 1
+
     if k == 0:
         return root
 

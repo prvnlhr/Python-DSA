@@ -8,7 +8,6 @@ def findPath(root, pathArr, node):
     pathArr.append(root.data)
     if root.data == node:
         return True
-
     if findPath(root.left, pathArr, node) or findPath(root.right, pathArr, node):
         return True
     pathArr.pop()

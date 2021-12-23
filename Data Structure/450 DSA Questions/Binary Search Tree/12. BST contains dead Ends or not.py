@@ -25,7 +25,7 @@ import BST
 #
 # IMPLEMENTATION:___________________________________
 # If we take a closer look at the problem, we can notice that we basically need to check if there
-# is a leaf node with value x such that x+1 and x-1 exist in BST with the exception of x = 1. For x = 1,
+# is a leaf node with value x such that x + 1 and x - 1 exist in BST with the exception of x = 1. For x = 1,
 # we can’t insert 0 as the problem statement says BST contains positive integers only.
 # To implement the above idea we first traverse the whole BST and store all nodes in a hash_map.
 # We also store all leaves in a separate hash to avoid re-traversal of BST.
@@ -42,12 +42,15 @@ def storeInSets(root):
     if root == None:
         return
 
+    # for all nodes insert root in all_nodes set
     all_nodes.add(root.data)
 
+    # for leaf node insert in set of leaf_nodes
     if root.left == None and root.right == None:
         leaf_nodes.add(root.data)
         return
 
+    # recur for left and right subtree
     storeInSets(root.left)
     storeInSets(root.right)
 
@@ -58,7 +61,7 @@ def isDeadEnd(root):
 
     all_nodes.add(0)
 
-    # All magic happens here, we are check for dead ends
+    # All magic happens here, we are checking for dead ends
     for x in leaf_nodes:
         if x + 1 in all_nodes and x - 1 in all_nodes:
             return True

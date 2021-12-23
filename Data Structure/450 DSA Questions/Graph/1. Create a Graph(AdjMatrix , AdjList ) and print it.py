@@ -26,19 +26,23 @@ from collections import defaultdict
 class Graph:
     def __init__(self, nVertices):
         self.nVertices = nVertices
-        #1. can be implement using 2D array list as,
+        #
+        # 1.__can be implement using 2D array list as,
         # adjList = [[] for i in range(nVertices+1)]
-        # 2. can be implement using dict as
+        #
+        # 2.__ can be implement using dict {} as
         self.adjList = {}
         for i in range(self.nVertices + 1):
             self.adjList[i] = []
-        # 2. can be implement using defaultdict as
+        #
+        # 3.__can be implement using inbuilt defaultdict as
         # self.adjList = defaultdict(list)
 
     def addEdge(self, v1, v2):
 
         self.adjList[v1].append(v2)
         self.adjList[v2].append(v1)
+
     def printGraph(self):
         for i in self.adjList:
             print(i, "-->", self.adjList[i])

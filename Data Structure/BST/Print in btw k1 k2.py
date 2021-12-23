@@ -8,6 +8,9 @@ class BinaryTreeNode:
         self.right = None
 
 
+result = []
+
+
 def elementsInRangeK1K2(root, k1, k2):
     if root is None:
         return
@@ -20,6 +23,7 @@ def elementsInRangeK1K2(root, k1, k2):
         elementsInRangeK1K2(root.left, k1, k2)
 
     else:
+        result.append(root.data)
         print(root.data, end=" ")
         elementsInRangeK1K2(root.left, k1, k2)
         elementsInRangeK1K2(root.right, k1, k2)
@@ -56,3 +60,4 @@ levelOrder = [int(i) for i in input().strip().split()]
 root = buildLevelTree(levelOrder)
 k1, k2 = (int(i) for i in input().strip().split())
 elementsInRangeK1K2(root, k1, k2)
+print(result)

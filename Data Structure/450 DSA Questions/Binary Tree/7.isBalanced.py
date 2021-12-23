@@ -32,7 +32,7 @@ def isBalanced(root):
         return True
 
 
-# __final O(n):
+# __final O(n) and also seems a easy solution :
 def isBalancedAndHeight(root):
     if root is None:
         return 0, True
@@ -40,6 +40,7 @@ def isBalancedAndHeight(root):
     lh, isLeftBalanced = isBalancedAndHeight(root.left)
     rh, isRightBalanced = isBalancedAndHeight(root.right)
     h = 1 + max(lh, rh)
+
     if lh - rh > 1 or rh - lh > 1:
         return h, False
     else:

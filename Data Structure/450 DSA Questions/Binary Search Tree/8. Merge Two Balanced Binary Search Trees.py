@@ -12,6 +12,7 @@ class BinaryTreeNode:
 # Write a function that merges the two given balanced BSTs into a balanced binary search tree.
 # Let there be m elements in first tree and n elements in the other tree.
 # Your merge function should take O(m+n) time.
+
 # Method 2 (Merge Inorder Traversals)
 # 1) Do inorder traversal of first tree and store the traversal in one temp array arr1[]. This step takes O(m) time.
 # 2) Do inorder traversal of second tree and store the traversal in another temp array arr2[]. This step takes O(n) time.
@@ -76,6 +77,6 @@ createSortedArray_from_BST(root1, arr1)
 arr2 = []
 createSortedArray_from_BST(root2, arr2)
 arr = mergeSortedArray(arr1, arr2)
-
 root = sortedArrayToBST(arr)
+
 BST.PrintLevelWise(root)

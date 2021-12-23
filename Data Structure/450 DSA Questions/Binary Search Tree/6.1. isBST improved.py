@@ -2,6 +2,25 @@ import BST
 import sys
 
 
+# SOL 2._________________________________
+
+class Solution:
+    min = ~sys.maxsize
+    max = sys.maxsize
+
+    def isBST(self, root):
+
+        def isBSTHelper(root, min, max):
+            if root is None:
+                return True
+            if root.data < min or root.data > max:
+                return False
+            return isBSTHelper(root.left, min, root.data - 1) and isBSTHelper(root.right, root.data + 1, max)
+
+        return isBSTHelper(root, min, max)
+
+
+# SOL 1._________________________________
 class isBSTReturn:
     def __init__(self, min, max, isBST):
         self.min = min
@@ -21,7 +40,6 @@ def isBST(root):
     Max = max(root.data, max(leftAns.max, rightAns.max))
 
     isBst = True
-
     if leftAns.max >= root.data:
         isBst = False
 

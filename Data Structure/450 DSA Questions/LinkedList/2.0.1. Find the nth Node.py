@@ -4,28 +4,14 @@ class ListNode:
         self.next = None
 
 
-# O(n)
-def lastNthToFirst(head, n):
-    ptr = head
-    nthRef = head
-    count = 1
-    while count < n:
-        count = count + 1
-        ptr = ptr.next
-    nthPrev = nthRef
-    while ptr.next:
-        print(ptr.val, nthRef.val, nthPrev.val)
-        nthPrev = nthRef
-        nthRef = nthRef.next
-        ptr = ptr.next
-    print(nthPrev.val, nthRef.val, ptr.val)
-    if nthRef.next:
-        nthPrev.next = nthRef.next
-    else:
-        nthPrev.next = None
-    nthRef.next = head
-    head = nthRef
-    return head
+def findnthNode(head, n):
+    temp = head
+    while temp:
+        if n == 0:
+            return temp.val
+        n = n - 1
+        temp = temp.next
+    return -1
 
 
 def takeInput():
@@ -57,7 +43,6 @@ def printLL(head):
 
 # Program to detect loop and remove if exist
 head = takeInput()
-n = 2
-newll = lastNthToFirst(head, n)
-# print(newll.val)
-printLL(newll)
+n = int(input())
+nthNode = findnthNode(head, n)
+print(nthNode)

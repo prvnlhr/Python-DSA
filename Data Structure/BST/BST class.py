@@ -57,6 +57,7 @@ class BST:
             return root.data
         return self.min(root.left)
 
+
     def deleteDataHelper(self, root, data):
         if root == None:
             return False, None
@@ -66,7 +67,7 @@ class BST:
             root.right = newRightNode
             return deleted, root
 
-        if root.data < data:
+        if root.data > data:
             deleted, newleftNode = self.deleteDataHelper(root.left, data)
             root.left = newleftNode
             return deleted, root

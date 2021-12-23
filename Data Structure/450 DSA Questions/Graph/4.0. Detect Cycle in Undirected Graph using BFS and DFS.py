@@ -95,7 +95,9 @@ for i in range(E):
 # print(adjList)
 # for i in adjMatrix:
 #     print(i)
-print(dfsCycleCheckMat(adjMatrix, V))
+
+# CAUTION MAT SOLUTION DOES NOT WORK EX_ V = 5 , 1 0 ,2 0 ,0 3 ,3 4
+# print(dfsCycleCheckMat(adjMatrix, V))
 print(dfsCycleCheckList(adjList, V))
 
 # Time Complexity: O(V+E).

@@ -12,11 +12,13 @@ def preSucc(root, key):
         return
 
     preSucc(root.left, key)
+
     if root and root.data > key:
         # print(root.data)
         if ((not q[0]) or q[0] and q[0].data > root.data):
             q[0] = root
             print("q", q[0].data)
+
     elif root and root.data < key:
         p[0] = root
         print("p", p[0].data)

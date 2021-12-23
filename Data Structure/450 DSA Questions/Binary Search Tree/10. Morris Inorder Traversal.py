@@ -17,7 +17,11 @@ import BST
 #                 node we found; and
 #              b) Go to this left child, i.e., current = current->left
 
-def morrisInorderTraversal(root):
+
+# Time Complexity : O(n) If we take a closer look, we can notice that every
+# edge of the tree is traversed at most three times. And in the worst case,
+# the same number of extra edges (as input tree) are created and removed.
+def morrisInorderTraversalx(root):
     sol = []
 
     curr = root
@@ -41,6 +45,43 @@ def morrisInorderTraversal(root):
     return sol
 
 
+# STRIVER'S SOLUTION YOUTUBE
+
+def morrisInorderTraversal(root):
+    # output array
+    inorder = []
+    curr = root
+    # initialize curr as root
+    while curr is not None:  # This Means we have reached Right Most Node i.e end of LDR traversal
+
+        # STEP 1__. Check curr.left is None or not ?
+
+        # if None --> curr is traversal node so append it to output array,
+        # and move to right of curr
+        if curr.left is None:
+            inorder.append(curr.data)
+            curr = curr.right
+        # if not none --> find its right most node
+        else:
+            prev = curr.left
+            while prev.right and prev.right != curr:
+                prev = prev.right
+            # if right most node is None then connect it to curr
+            if prev.right is None:
+                # make thread
+                prev.right = curr
+                curr = curr.left
+            else:
+                prev.right = None
+                inorder.append(curr.data)
+                curr = curr.right
+
+    return inorder
+
+
 root = BST.buildLevelTree()
 ans = morrisInorderTraversal(root)
 print(ans)
+# Ex__
+# input -> 1 2 3 4 5 -1 -1 -1 -1 -1 6 -1 -1
+# output-> [4, 2, 5, 6, 1, 3]

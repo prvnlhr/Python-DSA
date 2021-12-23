@@ -5,26 +5,19 @@ class Node:
         self.next = None
 
 
-def reverseLLIterative(head):
-    curr = head
+def deletenthNode(head, n):
     prev = None
-    while curr:
-        next = curr.next
-        curr.next = prev
-        prev = curr
-        curr = next
-    head = prev
-    return head
-
-
-def ReverseRec(head):
-    if head is None or head.next is None:
+    temp = head
+    if n == 0:
+        head = head.next
         return head
-    smallhead = ReverseRec(head.next)
-    tail = head.next
-    tail.next = head
-    head.next = None
-    return smallhead
+    while temp:
+        if n == 0:
+            prev.next = temp.next
+        prev = temp
+        temp = temp.next
+        n = n - 1
+    return head
 
 
 # _Main_____________________________
@@ -50,12 +43,14 @@ def takeInput():
 # __Printing LL function _______________________________________________________________________________________________
 def printLL(head):
     while head is not None:
-        print(head.data, end=" ")
+        print(head.data, end="->")
         head = head.next
-    # print(None)
+    print(None)
     return
 
 
+# __Main Driver Function_________________________________________________________________________________________________________________
 head = takeInput()
-head = reverseLLIterative(head)
-printLL(head)
+n = int(input())
+newLL = deletenthNode(head, n)
+printLL(newLL)

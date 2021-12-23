@@ -25,11 +25,36 @@ def LCA(root, n1, n2):
     print(path2)
     i = 0
     while i < len(path1) and i < len(path2):
-
         if path1[i] != path2[i]:
             break
         i = i + 1
     return path1[i - 1]
+
+
+# STEPS :__
+# 1._recur left subtree abd find lca
+# 2._recur right subtree abd find lca
+# 3._if we get left_lca and right_lca, then root is lca
+# 4._else return which is not None from left and right lca
+#
+# O(N) solution
+def LCAOptimize(root, n1, n2):
+    if root is None:
+        return None
+
+    # if root is equal to n1 or n2,then return root
+    if root.data == n1 or root.data == n2:
+        return root
+
+    left_lca = LCAOptimize(root.left, n1, n2)
+    right_lca = LCAOptimize(root.right, n1, n2)
+
+    # if we find left_lca and right_lca in left and right subtree ,that means
+    # we root is lca
+    if left_lca and right_lca:
+        return root
+    # else return a lca which is not None
+    return left_lca if left_lca is not None else right_lca
 
 
 BT = BinaryTreeInputPrint
