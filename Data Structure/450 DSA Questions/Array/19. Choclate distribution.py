@@ -33,7 +33,6 @@ def findMinDiff(arr, m):
     if len(arr) < m:
         return -1
 
-
     min_diff = arr[len(arr) - 1] - arr[0]
     for i in range(len(arr) - m + 1):
         print(min_diff, arr[i], arr[i + m - 1], arr[i + m - 1] - arr[i])
