@@ -4,7 +4,7 @@ def ArraySpecialSum(n, arr):
     for i in range(len(arr)):
 
         sum = sum + arr[i]
-        print("sum",i, sum)
+        print("sum", i, sum)
         if sum >= 10:
             print(sum)
             digit1 = sum % 10
@@ -13,8 +13,6 @@ def ArraySpecialSum(n, arr):
             sum = sum + digit1
 
     return sum
-
-
 
 
 n = int(input())
