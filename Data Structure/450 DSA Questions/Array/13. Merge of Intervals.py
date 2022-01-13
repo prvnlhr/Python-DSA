@@ -10,7 +10,7 @@
 # 2. Initialize stack with first element of array
 # 3. for every element of input arr, there may be two conditions,
 # ____if not overlapping --> since the array is sorted on basis of their start value, so to check
-#                            overlapping we can compare curr element start top stack_top start,
+#                            overlapping we can compare curr element_start to stack_top_start,
 #                            if stack_top start is smaller then no overlapping,hence append curr top stack
 # ____if overlapping --> we do not check anything just change the stack top elements end with max(stack_top_end ,curr_end)
 
@@ -39,7 +39,7 @@ def mergeInterval(arr):
     return stack
 
 
-arr = [[6, 8], [1, 9], [2, 4], [4, 7]]
+# arr = [[6, 8], [1, 9], [2, 4], [4, 7]]
 arr = [[1, 3], [2, 6], [8, 10], [15, 18]]
 ans = mergeInterval(arr)
 print(ans)
