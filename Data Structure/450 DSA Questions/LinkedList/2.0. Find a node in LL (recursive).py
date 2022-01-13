@@ -7,7 +7,6 @@ class Node:
 index = 0
 
 
-
 def linearSearchRecursive(head, n):
     global index
     if head is None:
