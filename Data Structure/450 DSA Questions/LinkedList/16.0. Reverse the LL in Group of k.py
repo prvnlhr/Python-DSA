@@ -18,7 +18,7 @@ def reverseKGroup(head, k):
         count = count + 1
 
     # if next element after reversing k is not None
-    # call recursive to for next k elements with head = next
+    # call recursive to for next k elements with ( head = next )
     if next:
         head.next = reverseKGroup(next, k)
     return prev
