@@ -13,8 +13,9 @@ def lastNthToFirst(head, n):
         count = count + 1
         ptr = ptr.next
     nthPrev = nthRef
+
     while ptr.next:
-        print(ptr.val, nthRef.val, nthPrev.val)
+        # print(ptr.val, nthRef.val, nthPrev.val)
         nthPrev = nthRef
         nthRef = nthRef.next
         ptr = ptr.next
@@ -54,7 +55,7 @@ def printLL(head):
 
 # Program to detect loop and remove if exist
 head = takeInput()
-n = 2
+n = int(input())
 newll = lastNthToFirst(head, n)
 # print(newll.val)
 printLL(newll)
