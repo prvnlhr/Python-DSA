@@ -4,8 +4,21 @@ class Node:
         self.next = None
 
 
-# Geeks for Geeks Solution:
-def reorderList(head):
+# You are given the head of a singly linked-list. The list can be represented as:
+# INPUT LIST :
+# L0 → L1 → L2 → L4 → L5 ... → Ln - 1 → Ln
+#
+# Reorder the list to be on the following form:
+# L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …
+
+# For list [1,2,3,4,5,6,7] we need to return [1,7,2,6,3,5,4].
+
+# We can note, that it is actually two lists [1,2,3,4] and [7,6,5],
+# where elements are interchange.
+
+
+# Geeks for Geeks Solution: O(N) O(N)
+def reorderListGfg(head):
     if (head is None):
         return None
 
@@ -43,8 +56,8 @@ def reorderList(head):
     return head
 
 
-# CN Solution
-def rearrange(head):
+# CN Solution Recursive
+def rearrangeCN(head):
     if (head == None):
         return head
     second = head.next
@@ -59,11 +72,45 @@ def rearrange(head):
         prev = last
         last = last.next
     #
-
     head.next = last
     prev.next = None
-    last.next = rearrange(second)
+    last.next = rearrangeCN(second)
     return head
+
+
+# LEETCODE EASY UNDERSTAND SOLUTION__
+# T: O(N), S: O(N)
+def reorderListLC(head):
+    #
+    if not head:
+        return []
+
+    # STEP__1: find middle
+    slow, fast = head, head
+    while fast.next and fast.next.next:
+        slow = slow.next
+        fast = fast.next.next
+    print(slow.data, fast.data)
+    # STEP__2: reverse second half
+    prev = None
+    curr = slow.next
+    while curr:
+        nextt = curr.next
+        curr.next = prev
+        prev = curr
+        curr = nextt
+    slow.next = None
+
+    # STEP__3: merge lists
+    head1, head2 = head, prev
+    head1 = head
+    head2 = prev
+    # IMP STEP COMPLICATED
+    while head2:
+        nextt = head1.next
+        head1.next = head2
+        head1 = head2
+        head2 = nextt
 
 
 # LeetCodeSolution O(N)
@@ -157,5 +204,5 @@ def printLL(head):
 
 
 head = takeInput()
-reorderList(head)
+reorderListLC(head)
 printLL(head)
