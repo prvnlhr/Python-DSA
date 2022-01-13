@@ -15,6 +15,7 @@ def reverse(node):
     return smallHead
 
 
+# T: O(N) ,S: O(1)
 def palindromeLL(head):
     slow = head
     fast = head
