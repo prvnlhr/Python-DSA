@@ -8,11 +8,23 @@ class MinStack:
         self.size = 0
         self.Min = sys.maxsize
 
+    def printStack(self):
+        print(self.stack)
+
     def push(self, x):
+        # When we are push a element in stack ,we are also ,
+        # storing a min value util that element --> [(x,Min),[(,)],[(,)]...]
 
         self.Min = min(x, self.Min)
+        # Here we append a tuple in stack not a single element [(,)]
         self.stack.append((x, self.Min))
         self.size = self.size + 1
+
+    # As we are storing pair in stack,
+    # after popping a element from stack,
+    # there may be two conditions,
+    # if stack becomes empty --> we reset self.Min value to maxsize
+    # else --> self.Min will be last element in Stack pair
 
     def pop(self):
         if self.isEmpty():
@@ -20,8 +32,10 @@ class MinStack:
         else:
             self.stack.pop()
             self.size = self.size - 1
+
         if len(self.stack) == 0:
             self.Min = sys.maxsize
+
         else:
             self.Min = self.stack[-1][1]
         self.size = self.size - 1
@@ -47,6 +61,7 @@ class MinStack:
 minStack = MinStack()
 minStack.push(-10)
 minStack.push(14)
+print(minStack.printStack())
 print('min', minStack.getMin())
 print('min', minStack.getMin())
 minStack.push(-20)
