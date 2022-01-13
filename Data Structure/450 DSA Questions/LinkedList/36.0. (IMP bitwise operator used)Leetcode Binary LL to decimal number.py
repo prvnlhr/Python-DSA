@@ -41,10 +41,10 @@ def getDecimalValue(head):
     while ptr:
         print(res)
         res = (res << 1) + ptr.val
-        # res<<1:
+        # res << 1:
         # << shift operator used for power here
-        # res<<1 --> res * 2**1
-        # if res<<2 --> res * 2**2
+        # res << 1 --> res * 2**1
+        # if res << 2 --> res * 2**2
 
         ptr = ptr.next
 
