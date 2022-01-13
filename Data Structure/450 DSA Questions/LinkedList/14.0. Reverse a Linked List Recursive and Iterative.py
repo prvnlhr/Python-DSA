@@ -9,10 +9,15 @@ def reverseLLIterative(head):
     curr = head
     prev = None
     while curr:
+        # storing the curr.next , so that we can move curr after changing connections
         next = curr.next
+        # changing connection
         curr.next = prev
+        # moving prev node further
         prev = curr
+        # moving curr to stored next
         curr = next
+    # at end we will make head as prev
     head = prev
     return head
 
