@@ -27,6 +27,7 @@ def evaluateReversePolish(arr):
     return stack[-1]
 
 
+# SIMPLE
 def evalRPN(arr):
     operators = ['+', '-', '*', '/']
     stack = []
