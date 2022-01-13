@@ -49,7 +49,7 @@ def findLength(s):
     maxLength = 0
     #
     #
-    # traversing form left-->right
+    # __traversing form left --> right
     for i in range(len(s)):
 
         if s[i] == '(':
@@ -63,7 +63,7 @@ def findLength(s):
             left = right = 0
     #
     #
-    # traversing from right-->left
+    # __traversing from right --> left
     left = right = 0
     for i in range(len(s) - 1, -1, -1):
 
