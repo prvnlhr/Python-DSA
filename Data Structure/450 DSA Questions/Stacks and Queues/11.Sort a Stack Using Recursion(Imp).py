@@ -1,4 +1,5 @@
 def sortInserted(s, ele):
+    # ele > s[-1] this condition is only diff compare to reverse stack sol
     if len(s) == 0 or ele > s[-1]:
         s.append(ele)
         return
