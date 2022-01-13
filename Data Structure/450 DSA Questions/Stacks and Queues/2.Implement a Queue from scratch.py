@@ -15,6 +15,7 @@ class Queue:
         if self.isEmpty():
             return
         else:
+            # trick is to maintain a frontIndex,
             ele = self.array[self.frontIndex]
             self.frontIndex = self.frontIndex + 1
             self.size = self.size - 1
