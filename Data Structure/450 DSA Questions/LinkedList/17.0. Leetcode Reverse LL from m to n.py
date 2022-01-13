@@ -8,6 +8,79 @@ class ListNode:
         self.next = None
 
 
+def reverseBetween(head, m, n):
+    if m == n:
+        return head
+
+    dummyNode = ListNode(0)
+    dummyNode.next = head
+    prev = dummyNode
+
+    #    prev
+    #     |
+    #     0 --> 1 --> 2 --> 3 --> 4 --> 5
+    #     |
+    #   dummyNode
+
+    # STEP 1__. Moving prev ptr to m pos node
+    for i in range(m - 1):
+        prev = prev.next
+
+    # reverse the [m, n] nodes
+
+    #          prev
+    #           |
+    #     0 --> 1 --> 2 --> 3 --> 4 --> 5
+    #
+
+    reverse = None
+    cur = prev.next
+    # FIG 1 :
+    #          prev
+    #           |
+    #     0 --> 1 --> 2 --> 3 --> 4 --> 5
+    #                 |
+    #                curr
+    #
+    # STEP 2__. reverse connection from m to n
+
+    for i in range(n - m + 1):
+        next = cur.next
+        cur.next = reverse
+        reverse = cur
+        cur = next
+    #
+    # FIG 2 :
+    #          prev             reverse
+    #           |                 |
+    #     0 --> 1 --> 2 --> 3 --> 4 --> 5
+    #                                   |
+    #                                  curr
+
+    print(cur.val, end=' ')
+    print(prev.val, end=' ')
+    print(reverse.val, end=' ')
+    print(prev.next.val, end=' ')
+
+    # FIG 3 :
+    #          prev          reverse
+    #           |               |
+    #     0 --> 1 --> 2 <- 3 <- 4 --> 5
+    #                 |         |     |
+    #                reversed part   curr
+
+    #   elements from position m == 2 and n == 4 has been reversed by reversing connection.
+
+    # now , we want   1 --> 4 --> 3 --> 2 --> 5
+    # so in fig 3 , we have to make 1(prev) point to 4(rev) and 2(prev.next) point to 5(curr)
+    #
+    # STEP 3__. finally making connection to print LL properly (IMP STEP)
+    prev.next.next = cur
+    prev.next = reverse
+    #   0 --> 1 --> 4 --> 3 --> 2 --> 5
+    return dummyNode.next
+
+
 def ReverseIt(head, m, n):
     prev = None
     current = head
@@ -32,7 +105,7 @@ def ReverseIt(head, m, n):
     return head
 
 
-def reverseBetween(head, m, n):
+def reverseBetween1(head, m, n):
     if n - m == 0:
         return head
     if m == 1:
@@ -97,4 +170,5 @@ head = takeInput()
 m = int(input())
 n = int(input())
 newLL = reverseBetween(head, m, n)
+print()
 printLinkedList(newLL)
