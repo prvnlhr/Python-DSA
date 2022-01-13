@@ -4,6 +4,28 @@ class ListNode:
         self.next = None
 
 
+# O(n)__MY SOL 100%
+def lastNthToFirst(head, n):
+    sentinal = ListNode(0)
+    sentinal.next = head
+    prev = sentinal
+    curr = sentinal.next
+    ptr = curr
+    for i in range(1, n):
+        ptr = ptr.next
+
+    while ptr.next:
+        prev = curr
+        curr = curr.next
+        ptr = ptr.next
+    if curr == head:
+        return curr
+    prev.next = curr.next
+    curr.next = head
+    head = curr
+    return head
+
+
 # O(n)
 def lastNthToFirst(head, n):
     ptr = head
@@ -57,7 +79,7 @@ def printLL(head):
 
 # Program to detect loop and remove if exist
 head = takeInput()
-n = 2
+n = int(input())
 newll = lastNthToFirst(head, n)
 # print(newll.val)
 printLL(newll)
