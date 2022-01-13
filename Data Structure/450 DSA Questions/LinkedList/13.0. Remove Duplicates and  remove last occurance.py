@@ -15,12 +15,13 @@ def lastAppearance(head):
         else:
             map[temp.data] = 1
             temp = temp.next
+
     print(map)
     temp = head
-    
-    while(temp is not None):
+
+    while (temp is not None):
         # print(temp.data)
-        if(map[temp.data] > 1):
+        if (map[temp.data] > 1):
             map[temp.data] = map[temp.data] - 1
             temp = temp.next
         else:
@@ -28,7 +29,6 @@ def lastAppearance(head):
     print(map)
 
     return head
-
 
 
 # __Main_____________________________________________________________________________________________________________________
