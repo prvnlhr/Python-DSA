@@ -14,15 +14,16 @@ def detectAndDeleteLoop(head):
 
     slow = head
     fast = head
-
+    # printLL(head)
+    # Floyd cycle to detect Loop
     while slow and fast and fast.next:
         slow = slow.next
         fast = fast.next.next
         if slow == fast:
             loopExist = True
             break
-
-    # if loop exist-> remove
+    print(slow.data)
+    # if loop exist -> remove
     if loopExist:
         slow = head
         while slow.next != fast.next:
